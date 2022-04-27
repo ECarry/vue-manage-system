@@ -3,7 +3,7 @@
     <el-tag
     :key="tag.name"
     v-for="tag in tags"
-    closable
+    :closable = "tag.name !== 'dashboard'"
     :disable-transitions="false"
     @click="clickTab(tag)"
     @close="handleClose(tag)">
