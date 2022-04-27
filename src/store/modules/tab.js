@@ -19,6 +19,7 @@ export default {
         state.currentMenu = null
       } else {
         state.currentMenu = val
+        // findIndex 查找数组是否存在传进来的值,有则返回该数值索引,无则返回 -1
         const result = state.tabList.findIndex(item => item.name === val.name)
         if (result === -1) {
           state.tabList.push(val)
