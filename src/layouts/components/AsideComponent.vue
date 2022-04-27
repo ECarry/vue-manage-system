@@ -1,6 +1,7 @@
 <template>
   <el-menu
-    default-active="2"
+    router
+    default-active="/dashboard"
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
@@ -19,7 +20,7 @@
         <span>{{ menu.label }}</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item :index="item.path" v-for="item in menu.children" :key="item.path" @click="clickMenu(item)">{{ item.label }}</el-menu-item>
+        <el-menu-item :index="menu.path + item.path" v-for="item in menu.children" :key="item.path" @click="clickMenu(item)">{{ item.label }}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
 
@@ -32,7 +33,7 @@ export default {
     return {
       asideMenu: [
         {
-          path: '/',
+          path: '/dashboard',
           name: 'dashboard',
           label: '控制面板',
           icon: 'menu'
@@ -86,7 +87,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .el-menu {
   height: 100%;
 }

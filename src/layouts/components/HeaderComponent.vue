@@ -6,7 +6,7 @@
 
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">控制面板</el-breadcrumb-item>
-        <el-breadcrumb-item v-if="currentMenu">{{ currentMenu.label }}</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ name: currentMenu.name }" v-if="currentMenu">{{ currentMenu.label }}</el-breadcrumb-item>
       </el-breadcrumb>
 
     </div>
