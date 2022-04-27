@@ -5,7 +5,18 @@
 </template>
 <script>
 export default {
-  name: 'dashboard'
+  name: 'dashboard',
+  methods: {
+    getDate () {
+      this.$request.get('/dashboard/getdata')
+        .then(res => {
+          console.log(res)
+        })
+    }
+  },
+  mounted () {
+    this.getDate()
+  }
 }
 </script>
 <style lang="">
