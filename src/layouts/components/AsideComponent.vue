@@ -3,6 +3,7 @@
     router
     default-active="/dashboard"
     class="el-menu-vertical-demo"
+    :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
     background-color="#545c64"
@@ -72,6 +73,9 @@ export default {
     },
     hasChildrenMenu () {
       return this.asideMenu.filter(item => item.children)
+    },
+    isCollapse () {
+      return this.$store.state.tab.isCollapse
     }
   },
   methods: {

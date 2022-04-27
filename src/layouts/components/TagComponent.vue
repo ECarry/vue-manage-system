@@ -5,6 +5,7 @@
     v-for="tag in tags"
     :closable = "tag.name !== 'dashboard'"
     :disable-transitions="false"
+    :effect="$route.name === tag.name ? 'dark' : 'plain'"
     @click="clickTab(tag)"
     @close="handleClose(tag)">
     {{ tag.label }}

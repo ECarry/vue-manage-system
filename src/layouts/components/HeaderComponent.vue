@@ -1,8 +1,8 @@
 <template>
   <header>
     <div class="left-content">
-      <i class="el-icon-s-fold" v-if="true"></i>
-      <i class="el-icon-s-unfold" v-else></i>
+      <i class="el-icon-s-unfold" @click="collapseMenu" v-if="isCollapse"></i>
+      <i class="el-icon-s-fold" @click="collapseMenu" v-else></i>
 
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">控制面板</el-breadcrumb-item>
@@ -33,8 +33,14 @@ export default {
   },
   computed: {
     ...mapState({
-      currentMenu: state => state.tab.currentMenu
+      currentMenu: state => state.tab.currentMenu,
+      isCollapse: state => state.tab.isCollapse
     })
+  },
+  methods: {
+    collapseMenu () {
+      this.$store.commit('collapseMenu')
+    }
   }
 }
 </script>
@@ -48,10 +54,13 @@ header {
     display: flex;
     align-items: center;
     i{
-    color: antiquewhite;
+    color: rgb(89, 94, 98);
     font-size: 22px;
     cursor: pointer;
     margin-right: 20px;
+    &:hover{
+      color: #fff;
+    }
     }
   }
   .right-content {
@@ -68,7 +77,7 @@ header {
 .el-breadcrumb{
   .el-breadcrumb__item {
     .el-breadcrumb__inner {
-      color: rgb(227, 224, 224);
+      color: rgb(89, 94, 98);
       &:hover {
         color: #fff;
       }
@@ -76,6 +85,9 @@ header {
     &:last-child {
       .el-breadcrumb__inner {
         color: #409EFF;
+        &:hover {
+          color: #fff;
+        }
       }
   }
   }

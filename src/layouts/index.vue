@@ -1,6 +1,6 @@
 <template>
   <el-container style="height:100%">
-    <el-aside width="200px">
+    <el-aside width="auto">
       <AsideComponent/>
     </el-aside>
 
@@ -30,6 +30,10 @@ export default {
 }
 </script>
 <style lang="less">
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 .el-aside {
   border: none;
 }

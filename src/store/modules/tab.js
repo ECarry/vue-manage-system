@@ -2,6 +2,7 @@ export default {
   state: {
     menu: [],
     currentMenu: null,
+    isCollapse: false,
     tabList: [
       {
         path: '/',
@@ -31,6 +32,9 @@ export default {
         const result = state.tabList.findIndex(item => item.name === val.name)
         state.tabList.splice(result, 1)
       }
+    },
+    collapseMenu (state) {
+      state.isCollapse = !state.isCollapse
     }
   },
   actions: {
