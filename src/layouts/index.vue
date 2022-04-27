@@ -8,6 +8,7 @@
       <el-header>
         <HeaderComponent/>
       </el-header>
+      <TagComponent/>
       <el-main>Main</el-main>
     </el-container>
 </el-container>
@@ -15,12 +16,14 @@
 <script>
 import AsideComponent from './components/AsideComponent'
 import HeaderComponent from './components/HeaderComponent'
+import TagComponent from './components/TagComponent.vue'
 
 export default {
   name: 'layout',
   components: {
     AsideComponent,
-    HeaderComponent
+    HeaderComponent,
+    TagComponent
   }
 }
 </script>
