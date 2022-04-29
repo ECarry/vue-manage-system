@@ -23,26 +23,14 @@ const routes = [
         component: () => import('@/views/dashboard/index')
       },
       {
+        path: 'photo',
+        name: 'photo',
+        component: () => import('@/views/photo/index')
+      },
+      {
         path: 'user',
         name: 'user',
         component: () => import('@/views/user/index')
-      }
-    ]
-  },
-  {
-    path: '/host',
-    name: 'host',
-    component: Layout,
-    children: [
-      {
-        path: 'physics',
-        name: 'physics',
-        component: () => import('@/views/host/PhysicsHost')
-      },
-      {
-        path: 'cloud',
-        name: 'cloud',
-        component: () => import('@/views/host/CloudHost')
       }
     ]
   }

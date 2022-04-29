@@ -45,6 +45,7 @@ export default {
   height: 60px;
   display: flex;
   align-items: center;
+  padding: 0 20px;
   .el-tag {
     margin: 0 10px;
     cursor: pointer;

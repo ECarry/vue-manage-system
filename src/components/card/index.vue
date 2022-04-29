@@ -1,11 +1,16 @@
 <template>
   <el-card :body-style="{ padding: '0px' }">
-    <img :src="photo.url" class="image">
+    <el-image :src="photo.image" style="width: 250px; height: 250px" fit="cover" lazy></el-image>
     <div style="padding: 14px;">
       <span>{{ photo.name }}</span>
       <div class="bottom clearfix">
-        <time class="time">{{ photo.date }}</time>
-        <el-button type="text" class="button">操作按钮</el-button>
+        <time class="time">{{ photo.shot_time }}</time>
+        <el-popconfirm
+          title="确定删除吗？"
+        >
+          <el-button slot="reference" type="text" class="button"><i class="el-icon-delete"></i></el-button>
+        </el-popconfirm>
+        <el-button type="text" class="button"><i class="el-icon-edit"></i></el-button>
       </div>
     </div>
   </el-card>
@@ -30,11 +35,6 @@ export default {
   .button {
     padding: 0;
     float: right;
-  }
-
-  .image {
-    width: 100%;
-    display: block;
   }
 
   .clearfix:before,

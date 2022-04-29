@@ -11,7 +11,7 @@
     >
 
     <el-menu-item :index="menu.path" v-for="menu in noChildrenMenu" :key="menu.path" @click="clickMenu(menu)">
-      <i :class="'el-icon-' + menu.icon"></i>
+      <i :class="'ri-' + menu.icon"></i>
       <span slot="title">{{ menu.label }}</span>
     </el-menu-item>
 
@@ -37,31 +37,19 @@ export default {
           path: '/dashboard',
           name: 'dashboard',
           label: '控制面板',
-          icon: 'menu'
+          icon: 'dashboard-line'
         },
         {
-          path: '/host',
-          name: 'host',
-          label: '主机资源',
-          icon: 'orange',
-          children: [
-            {
-              path: '/physics',
-              name: 'physics',
-              label: '物理主机'
-            },
-            {
-              path: '/cloud',
-              name: 'cloud',
-              label: '云主机'
-            }
-          ]
+          path: '/photo',
+          name: 'photo',
+          label: '相册',
+          icon: 'camera-line'
         },
         {
           path: '/user',
           name: 'user',
           label: '用户中心',
-          icon: 'user'
+          icon: 'user-line'
         }
       ]
     }
@@ -91,9 +79,13 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="less" scoped>
 .el-menu {
   height: 100%;
+  i{
+    font-size: 18px;
+    margin-right: 10px;
+  }
 }
 .el-menu-vertical-demo {
   border: none;
