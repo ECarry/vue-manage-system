@@ -1,7 +1,7 @@
 <template>
   <el-menu
     router
-    default-active="/dashboard"
+    :default-active="$route.path"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     @open="handleOpen"
