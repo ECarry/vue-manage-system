@@ -42,7 +42,7 @@ export default {
         {
           path: '/photo',
           name: 'photo',
-          label: '相册',
+          label: '我的相册',
           icon: 'camera-line'
         },
         {
