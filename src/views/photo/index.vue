@@ -2,8 +2,8 @@
   <div class="list-card">
     <div class="list-card-operation">
       <el-button type="primary" size="medium" @click="dialogFormVisible = true">上传</el-button>
+      <!--====================UPLAOD DIALOG==========================-->
       <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-        <!--====================UPLAOD DIALOG==========================-->
         <el-form :model="form">
           <el-form-item label="名称" :label-width="formLabelWidth">
             <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -164,7 +164,7 @@ export default {
       })
     }
   },
-  mounted () {
+  created () {
     this.getPhotoData()
   }
 }
