@@ -34,19 +34,19 @@ export default {
     return {
       asideMenu: [
         {
-          path: '/dashboard',
+          path: '/admin/dashboard',
           name: 'dashboard',
           label: '控制面板',
           icon: 'dashboard-line'
         },
         {
-          path: '/photo',
+          path: '/admin/photo',
           name: 'photo',
           label: '我的相册',
           icon: 'camera-line'
         },
         {
-          path: '/user',
+          path: '/admin/user',
           name: 'user',
           label: '用户中心',
           icon: 'user-line'
