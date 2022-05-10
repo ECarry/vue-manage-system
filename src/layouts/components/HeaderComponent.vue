@@ -5,7 +5,7 @@
       <i class="el-icon-s-fold" @click="collapseMenu" v-else></i>
 
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">控制面板</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ name: 'dashboard' }">控制面板</el-breadcrumb-item>
         <el-breadcrumb-item :to="{ name: currentMenu.name }" v-if="currentMenu">{{ currentMenu.label }}</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -87,6 +87,7 @@ header {
         color: #409EFF;
         &:hover {
           color: #fff;
+          cursor: pointer;
         }
       }
   }
