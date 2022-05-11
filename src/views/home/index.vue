@@ -41,4 +41,13 @@ export default {
   display: flex;
 }
 
+@media screen and (max-width: 1200px) {
+  .sidenav {
+    display: none;
+  }
+  .content {
+    left: 0;
+    width: 100vw;
+  }
+}
 </style>
