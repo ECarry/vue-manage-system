@@ -11,8 +11,36 @@ export default {
   name: 'Content',
   data () {
     return {
-      imgUrl: 'https://w.wallhaven.cc/full/8o/wallhaven-8oev1j.jpg'
+      imgUrl: '',
+      images: []
     }
+  },
+  methods: {
+    getPhotoData () {
+      this.loading = true
+      this.$request.get('http://127.0.0.1:8000/api/image')
+        .then(
+          res => {
+            console.log('------------res-------------', res)
+            this.images = res.results
+            const count = Math.ceil(Math.random() * (res.count + 1)) - 1
+            this.imgUrl = res.results[count].image
+          }
+        )
+        .catch(
+          error => {
+            console.log(error)
+            this.loading = false
+          }
+        )
+    },
+    handleClick () {
+      console.log('next')
+      this.imgUrl = this.images[2].image
+    }
+  },
+  created () {
+    this.getPhotoData()
   }
 }
 </script>

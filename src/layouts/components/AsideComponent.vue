@@ -9,7 +9,7 @@
     background-color="#545c64"
     text-color="#fff"
     >
-    <Logo style="color: #fff; margin: 30px"/>
+    <Logo style="margin: 30px"/>
     <el-menu-item :index="menu.path" v-for="menu in noChildrenMenu" :key="menu.path" @click="clickMenu(menu)">
       <i :class="'ri-' + menu.icon"></i>
       <span slot="title">{{ menu.label }}</span>

@@ -128,8 +128,8 @@ export default {
         .then(
           res => {
             console.log('------------res-------------', res.data)
-            this.photos = res.data.results
-            this.pagination.total = res.data.count
+            this.photos = res.results
+            this.pagination.total = res.count
             this.loading = false
           }
         )

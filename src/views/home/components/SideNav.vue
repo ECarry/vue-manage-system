@@ -3,6 +3,7 @@
     <Logo/>
     <div class="nav">
       <router-link to="/">Meditate on the golden coast</router-link>
+      <a>Simple Magic Things</a>
       <router-link to="/">SkyPixel Creator</router-link>
       <router-link to="/">Amoy, China</router-link>
       <a>Personal</a>
@@ -33,47 +34,47 @@ export default {
 @font-base-color: #4e5969;
 @font-hover-color: #1d2129;
 
-  .nav {
-    margin: 30px auto;
-    a {
-      display: block;
-      line-height: 30px;
-      font-size: 14px;
-      color: @font-base-color;
-      transition: color 0.3s ease;
-      font-weight: 500;
-      &:hover {
-        cursor: pointer;
-        color: @font-hover-color;
-      }
-      &::selection {
-        background: none;
-      }
-    }
-    a:last-child {
-      margin-top: 50px;
-    }
-    a.active{
+.nav {
+  margin: 30px auto;
+  a {
+    display: block;
+    line-height: 30px;
+    font-size: 14px;
+    color: @font-base-color;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    &:hover {
       cursor: pointer;
       color: @font-hover-color;
-      font-weight: 600;
+    }
+    &::selection {
+      background: none;
     }
   }
-  .icon {
-    font-size: 26px;
+  a:last-child {
+    margin-top: 50px;
+  }
+  a.active{
+    cursor: pointer;
+    color: @font-hover-color;
+    font-weight: 600;
+  }
+}
+.icon {
+  font-size: 26px;
+  color: @font-base-color;
+  a:-webkit-any-link{
     color: @font-base-color;
-    a:-webkit-any-link{
+  }
+  i {
+    margin-right: 10px;
+    &:hover{
+      color: @font-hover-color;
+      cursor: pointer;
+    }
+    &:visited{
       color: @font-base-color;
     }
-    i {
-      margin-right: 10px;
-      &:hover{
-        color: @font-hover-color;
-        cursor: pointer;
-      }
-      &:visited{
-        color: @font-base-color;
-      }
-    }
   }
+}
 </style>
