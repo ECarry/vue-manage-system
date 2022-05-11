@@ -1,7 +1,8 @@
 <template>
   <div class="logo">
+    <router-link to="/">
     <i class="ri-camera-2-line"></i>
-    <span>ECarry</span>
+    <span>ECarry</span></router-link>
   </div>
 </template>
 
@@ -27,6 +28,9 @@ export default {
   font-weight: 700;
   color: @font-base-color;
   font-family: 'Yellowtail', cursive;
+  a:-webkit-any-link{
+    color: @font-base-color;
+  }
   cursor: pointer;
   .logo-icon {
     margin-right: 10px;

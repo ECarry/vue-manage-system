@@ -2,18 +2,17 @@
   <div class="sidenav-content">
     <Logo/>
     <div class="nav">
-      <router-link>Meditate on the golden coast</router-link>
-      <router-link>SkyPixel Creator</router-link>
-      <router-link>Nature</router-link>
-      <a>Stereotype</a>
-      <a>Invisible</a>
-      <a>Amoy, China</a>
-      <a>Contat</a>
+      <router-link to="/">Meditate on the golden coast</router-link>
+      <router-link to="/">SkyPixel Creator</router-link>
+      <router-link to="/">Amoy, China</router-link>
+      <a>Personal</a>
+      <a>Contact</a>
     </div>
     <div class="icon">
-      <i class="ri-instagram-line"></i>
+      <a href="https://www.instagram.com/ecarry233/"><i class="ri-instagram-line"></i></a>
       <i class="ri-weibo-line"></i>
       <i class="ri-github-line"></i>
+      <i class="ri-twitter-line"></i>
     </div>
   </div>
 </template>
@@ -63,6 +62,9 @@ export default {
   .icon {
     font-size: 26px;
     color: @font-base-color;
+    a:-webkit-any-link{
+      color: @font-base-color;
+    }
     i {
       margin-right: 10px;
       &:hover{
