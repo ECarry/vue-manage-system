@@ -29,14 +29,14 @@ export default {
   height: 100%;
   left: 0;
   top: 0;
-  padding: 30px 0 20px 40px;
+  padding: 30px 0 0 40px;
 }
 
 .content {
   position: relative;
-  left: 300px;
-  padding: 30px;
-  width: calc(100vw - 360px);
+  left: 340px;
+  padding: 30px 0;
+  width: calc(100vw - 340px);
   height: calc(100vh - 60px);
   display: flex;
 }

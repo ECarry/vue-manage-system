@@ -23,8 +23,8 @@ export default {
           res => {
             console.log('------------res-------------', res)
             this.images = res.results
-            const count = Math.ceil(Math.random() * (res.count + 1)) - 1
-            this.imgUrl = res.results[count].image
+            // const count = Math.ceil(Math.random() * (res.count + 1)) - 1
+            this.imgUrl = res.results[0].image
           }
         )
         .catch(
@@ -52,6 +52,7 @@ export default {
 
 .img-content {
   height: calc(100vh - 60px);
+  width: calc(100vw - 340px);
   background-color: rgb(250, 250, 253);
   display: flex;
   align-items: center;
@@ -62,6 +63,12 @@ export default {
     &:hover{
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .img-content {
+    width: 100vw;
   }
 }
 </style>
