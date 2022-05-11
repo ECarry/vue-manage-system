@@ -35,8 +35,8 @@ export default {
 .content {
   position: relative;
   left: 340px;
-  padding: 30px 0;
-  width: calc(100vw - 340px);
+  padding: 30px 30px 30px 0;
+  width: calc(100vw - 370px);
   height: calc(100vh - 60px);
   display: flex;
 }
@@ -47,7 +47,9 @@ export default {
   }
   .content {
     left: 0;
-    width: 100vw;
+    width: calc(100vw - 60px);
+    padding: 30px;
   }
 }
+
 </style>

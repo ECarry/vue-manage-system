@@ -52,7 +52,7 @@ export default {
 
 .img-content {
   height: calc(100vh - 60px);
-  width: calc(100vw - 340px);
+  width: calc(100vw - 370px);
   background-color: rgb(250, 250, 253);
   display: flex;
   align-items: center;
@@ -66,9 +66,10 @@ export default {
   }
 }
 
-@media screen and (max-width: 1200px){
-  .img-content {
-    width: 100vw;
+@media screen and (max-width: 1200px) {
+  .img-content{
+    width: calc(100vw - 60px);
   }
+
 }
 </style>
