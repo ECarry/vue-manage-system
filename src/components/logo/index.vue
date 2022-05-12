@@ -36,6 +36,7 @@ export default {
     margin-right: 10px;
   }
   span{
+    margin-left: 15px;
   &::selection{
      background: none;
    }

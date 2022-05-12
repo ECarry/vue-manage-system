@@ -24,7 +24,7 @@ export default {
             console.log('------------res-------------', res)
             this.images = res.results
             // const count = Math.ceil(Math.random() * (res.count + 1)) - 1
-            this.imgUrl = res.results[0].image
+            this.imgUrl = res.results[10].image
           }
         )
         .catch(

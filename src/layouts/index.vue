@@ -38,6 +38,6 @@ export default {
   border: none;
 }
 .el-header {
-  background: rgb(60, 65, 69);
+  background: #1d2129;
 }
 </style>

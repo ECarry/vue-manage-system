@@ -6,10 +6,10 @@
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
-    background-color="#545c64"
+    background-color="#1d2129"
     text-color="#fff"
     >
-    <Logo style="margin: 30px"/>
+    <Logo style="margin: 30px 0 30px 15px"/>
     <el-menu-item :index="menu.path" v-for="menu in noChildrenMenu" :key="menu.path" @click="clickMenu(menu)">
       <i :class="'ri-' + menu.icon"></i>
       <span slot="title">{{ menu.label }}</span>
