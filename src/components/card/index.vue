@@ -31,7 +31,6 @@ export default {
       this.$request.delete('http://127.0.0.1:8000/api/image/' + id)
         .then(
           res => {
-            console.log(res)
             this.$message.success('删除成功!')
           }
         )

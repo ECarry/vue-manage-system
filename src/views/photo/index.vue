@@ -75,13 +75,22 @@
       </el-skeleton>
     </div>
     <div class="list-card-pagination" v-if="!loading">
-      <Pagination :pagination="pagination"/>
+      <el-pagination
+        background
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="pagination.currentPage"
+        :page-sizes="[12, 24, 36, 48]"
+        :page-size="pagination.pageSize"
+        layout="total, sizes, prev, pager, next"
+        :total="pagination.total"
+        style="margin-top: 10px;">
+      </el-pagination>
     </div>
   </div>
 </template>
 <script>
 import Card from '@/components/card/index'
-import Pagination from '@/components/pagination/index'
 
 const TYPE = [
   {
@@ -97,8 +106,7 @@ const TYPE = [
 export default {
   name: 'photo',
   components: {
-    Card,
-    Pagination
+    Card
   },
   data () {
     return {
@@ -108,7 +116,9 @@ export default {
       imageUrl: '',
       photos: [],
       pagination: {
-        total: ''
+        total: 0,
+        pageSize: 12,
+        currentPage: 1
       },
       form: {
         name: '',
@@ -121,13 +131,18 @@ export default {
       type: TYPE
     }
   },
+  computed: {
+    offset () {
+      return this.pagination.currentPage === 1 ? 0 : (this.pagination.pageSize * this.pagination.currentPage - this.pagination.pageSize)
+    }
+  },
   methods: {
-    getPhotoData () {
+    getPhotoData (pageSize, offset) {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/image')
+      this.$request.get('http://127.0.0.1:8000/api/image' + '?limit=' + pageSize + '&offset=' + offset)
         .then(
           res => {
-            console.log('------------res-------------', res.data)
+            console.log('------------res-------------', res)
             this.photos = res.results
             this.pagination.total = res.count
             this.loading = false
@@ -162,6 +177,17 @@ export default {
         console.log('---error---', error)
         this.$message.error(error.message)
       })
+    },
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+      this.pagination.pageSize = val
+      this.getPhotoData(val, this.offset)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
+      this.pagination.currentPage = val
+      console.log(this.offset)
+      this.getPhotoData(this.pagination.pageSize, this.offset)
     }
   },
   created () {
