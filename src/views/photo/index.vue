@@ -70,7 +70,7 @@
           </div>
         </template>
         <template>
-          <Card v-for="(photo, index) in photos" :key="index" :photo="photo" style="margin: 12px"/>
+          <Card v-for="(photo, index) in photos" :key="index" :photo="photo" style="margin: 12px" @getPhotoData="getPhotoData"/>
         </template>
       </el-skeleton>
     </div>
@@ -173,6 +173,7 @@ export default {
         console.log('---res---', res)
         this.dialogFormVisible = false
         this.$message.success('上传成功!')
+        this.getPhotoData()
       }).catch(error => {
         console.log('---error---', error)
         this.$message.error(error.message)
@@ -190,9 +191,11 @@ export default {
       this.getPhotoData(this.pagination.pageSize, this.offset)
     }
   },
+  created () {
+    this.getPhotoData()
+  },
   beforeCreate () {
     document.title = this.$route.meta.title
-    this.getPhotoData()
   }
 }
 </script>
