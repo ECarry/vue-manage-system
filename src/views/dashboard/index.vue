@@ -6,16 +6,8 @@
 <script>
 export default {
   name: 'dashboard',
-  methods: {
-    getDate () {
-      this.$request.get('/dashboard/getdata')
-        .then(res => {
-          console.log(res)
-        })
-    }
-  },
-  mounted () {
-    this.getDate()
+  beforeCreate () {
+    document.title = this.$route.meta.title
   }
 }
 </script>

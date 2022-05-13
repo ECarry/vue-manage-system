@@ -20,16 +20,25 @@ const routes = [
       {
         path: 'dashboard',
         name: 'dashboard',
+        meta: {
+          title: '控制面板'
+        },
         component: () => import('@/views/dashboard/index')
       },
       {
         path: 'photo',
         name: 'photo',
+        meta: {
+          title: '相册列表'
+        },
         component: () => import('@/views/photo/index')
       },
       {
         path: 'user',
         name: 'user',
+        meta: {
+          title: '个人中心'
+        },
         component: () => import('@/views/user/index')
       }
     ]
@@ -37,11 +46,17 @@ const routes = [
   {
     path: '/login',
     name: 'login',
+    meta: {
+      title: 'Login'
+    },
     component: () => import('@/views/login/index')
   },
   {
     path: '/',
     name: 'home',
+    meta: {
+      title: "ECarry's Photo"
+    },
     component: () => import('@/views/home/index')
   }
 ]

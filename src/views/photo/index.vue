@@ -190,7 +190,8 @@ export default {
       this.getPhotoData(this.pagination.pageSize, this.offset)
     }
   },
-  created () {
+  beforeCreate () {
+    document.title = this.$route.meta.title
     this.getPhotoData()
   }
 }

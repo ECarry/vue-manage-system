@@ -5,7 +5,10 @@
 </template>
 <script>
 export default {
-  name: 'user'
+  name: 'user',
+  beforeCreate () {
+    document.title = this.$route.meta.title
+  }
 }
 </script>
 <style lang="">
