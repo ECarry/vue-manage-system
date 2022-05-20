@@ -18,13 +18,11 @@ export default {
   methods: {
     getPhotoData () {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/image')
+      this.$request.get('http://127.0.0.1:8000/api/photo/')
         .then(
           res => {
             console.log('------------res-------------', res)
-            this.images = res.results
-            // const count = Math.ceil(Math.random() * (res.count + 1)) - 1
-            this.imgUrl = res.results[10].image
+            this.imgUrl = res[0].url
           }
         )
         .catch(

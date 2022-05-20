@@ -3,7 +3,7 @@
     <div class="list-card-operation">
       <el-button type="primary" size="medium" @click="dialogFormVisible = true">上传</el-button>
       <!--====================UPLAOD DIALOG==========================-->
-      <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-dialog title="上传照片" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="名称" :label-width="formLabelWidth">
             <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -122,10 +122,10 @@ export default {
       },
       form: {
         name: '',
-        date: '',
+        time: '',
         locale: '',
         desc: '',
-        image: '',
+        url: '',
         type: ''
       },
       type: TYPE
@@ -139,11 +139,11 @@ export default {
   methods: {
     getPhotoData (pageSize, offset) {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/image' + '?limit=' + pageSize + '&offset=' + offset)
+      this.$request.get('http://127.0.0.1:8000/api/photo')
         .then(
           res => {
             console.log('------------res-------------', res)
-            this.photos = res.results
+            this.photos = res
             this.pagination.total = res.count
             this.loading = false
           }
@@ -159,14 +159,14 @@ export default {
       const data = new FormData()
       const file = this.$refs.fileEle.files[0]
       data.append('name', this.form.name)
-      data.append('shot_time', this.form.date)
-      data.append('shot_local', this.form.locale)
-      data.append('description', this.form.desc)
-      data.append('image', file)
+      data.append('time', this.form.date)
+      data.append('location', this.form.locale)
+      data.append('desc', this.form.desc)
+      data.append('url', file)
       data.append('type', Number(this.form.type))
       console.log(this.form.type)
       this.$request({
-        url: 'http://127.0.0.1:8000/api/image',
+        url: 'http://127.0.0.1:8000/api/photo/',
         method: 'POST',
         data: data
       }).then(res => {

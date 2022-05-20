@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Login',
   data () {
@@ -33,8 +35,23 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setUsername', 'setToken', 'setRefresh']),
     handleLogin () {
       this.isLoading = true
+
+      const data = { ...this.form }
+
+      this.$request.post('http://127.0.0.1:8000/api/login/', data)
+        .then(res => {
+          console.log(res)
+          this.setUsername(res.username)
+          this.setToken(res.access)
+          this.setRefresh(res.refresh)
+          this.$router.push('/admin')
+        })
+        .then(error => {
+          console.log(error)
+        })
     }
   },
   beforeCreate () {

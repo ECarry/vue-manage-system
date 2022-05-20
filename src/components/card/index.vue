@@ -1,10 +1,10 @@
 <template>
   <el-card :body-style="{ padding: '0px' }">
-    <el-image :src="photo.image" style="width: 250px; height: 250px" fit="cover" lazy></el-image>
+    <el-image :src="photo.url" style="width: 250px; height: 250px" fit="cover" lazy></el-image>
     <div style="padding: 14px;">
       <span>{{ photo.name }}</span>
       <div class="bottom clearfix">
-        <time class="time">{{ photo.shot_time }}</time>
+        <time class="time">{{ photo.time }}</time>
         <el-popconfirm
           confirm-button-text='好的'
           cancel-button-text='不用了'
