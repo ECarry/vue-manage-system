@@ -29,7 +29,7 @@ export default {
       video: require('@/assets/video.mp4'),
       isLoading: false,
       form: {
-        username: 'admin',
+        username: 'ecarry',
         password: ''
       }
     }

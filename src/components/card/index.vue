@@ -28,7 +28,7 @@ export default {
   methods: {
     handlerDelete (id) {
       console.log('----------ID-----------', id)
-      this.$request.delete('http://127.0.0.1:8000/api/image/' + id)
+      this.$request.delete('http://127.0.0.1:8000/api/photo/' + id)
         .then(
           res => {
             this.$message.success('删除成功!')
