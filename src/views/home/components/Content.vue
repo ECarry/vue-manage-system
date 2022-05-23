@@ -22,7 +22,7 @@ export default {
         .then(
           res => {
             console.log('------------res-------------', res)
-            this.imgUrl = res[0].url
+            this.imgUrl = res.results[0].url
           }
         )
         .catch(

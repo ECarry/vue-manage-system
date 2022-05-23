@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="list-card-items">
-      <el-skeleton :loading="loading" animated :count="1" style="display: flex; flex-flow: row wrap; justify-content: space-between;" >
+      <el-skeleton :loading="loading" animated :count="1" style="display: grid; grid-template-columns: repeat(auto-fill, 250px);" >
         <template slot="template">
           <el-skeleton-item variant="image" style="width: 250px; height: 250px;" />
           <div>
@@ -77,6 +77,7 @@
     <div class="list-card-pagination" v-if="!loading">
       <el-pagination
         background
+        hide-on-single-page
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="pagination.currentPage"
@@ -139,11 +140,11 @@ export default {
   methods: {
     getPhotoData (pageSize, offset) {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/photo')
+      this.$request.get('http://127.0.0.1:8000/api/photo/')
         .then(
           res => {
-            console.log('------------res-------------', res)
-            this.photos = res
+            console.log('------------res-------------', res.results)
+            this.photos = res.results
             this.pagination.total = res.count
             this.loading = false
           }

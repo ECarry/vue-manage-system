@@ -13,9 +13,8 @@ instance.interceptors.request.use(
 
     if (token) {
       config.headers.Authorization = 'Bearer' + ' ' + token
-    }
-
-    return config
+      return config
+    } else return config
   },
   error => {
   // 对请求错误做些什么
