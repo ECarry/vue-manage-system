@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Logo from '@/components/logo/index'
+import Logo from '@/components/Logo'
 
 export default {
   name: 'SideNav',

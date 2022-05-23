@@ -28,11 +28,12 @@ instance.interceptors.response.use(
   // 对响应数据做点什么
     if (response.status === 200) {
       return response.data
-    }
+    } else return response
   },
   error => {
   // 超出 2xx 范围的状态码都会触发该函数。
   // 对响应错误做点什么
+    console.log('-----------------erro--------------------')
     return Promise.reject(error)
   })
 

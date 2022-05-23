@@ -41,7 +41,7 @@ export default {
 
       const data = { ...this.form }
 
-      this.$request.post('http://127.0.0.1:8000/api/login/', data)
+      this.$request.post('/api/login/', data)
         .then(res => {
           console.log(res)
           this.setUsername(res.username)
@@ -51,6 +51,8 @@ export default {
         })
         .then(error => {
           console.log(error)
+          this.isLoading = false
+          this.$message.error('用户名或密码错误!')
         })
     }
   }

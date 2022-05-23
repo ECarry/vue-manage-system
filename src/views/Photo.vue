@@ -91,7 +91,7 @@
   </div>
 </template>
 <script>
-import Card from '@/components/card/index'
+import Card from '@/components/Card'
 
 const TYPE = [
   {
@@ -140,7 +140,7 @@ export default {
   methods: {
     getPhotoData (pageSize, offset) {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/photo/')
+      this.$request.get('/api/photo/')
         .then(
           res => {
             console.log('------------res-------------', res.results)
@@ -167,7 +167,7 @@ export default {
       data.append('type', Number(this.form.type))
       console.log(this.form.type)
       this.$request({
-        url: 'http://127.0.0.1:8000/api/photo/',
+        url: '/api/photo/',
         method: 'POST',
         data: data
       }).then(res => {

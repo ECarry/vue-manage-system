@@ -23,7 +23,7 @@ const routes = [
         meta: {
           title: '控制面板'
         },
-        component: () => import('@/views/dashboard/index')
+        component: () => import('@/views/Dashboard/')
       },
       {
         path: 'photo',
@@ -31,7 +31,7 @@ const routes = [
         meta: {
           title: '相册列表'
         },
-        component: () => import('@/views/photo/index')
+        component: () => import('@/views/Photo')
       },
       {
         path: 'user',
@@ -39,7 +39,7 @@ const routes = [
         meta: {
           title: '个人中心'
         },
-        component: () => import('@/views/user/index')
+        component: () => import('@/views/User')
       }
     ]
   },
@@ -49,7 +49,7 @@ const routes = [
     meta: {
       title: 'Login'
     },
-    component: () => import('@/views/login/index')
+    component: () => import('@/views/Login')
   },
   {
     path: '/',
