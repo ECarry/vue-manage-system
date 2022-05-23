@@ -18,9 +18,6 @@ export default {
   components: {
     SideNav,
     Content
-  },
-  beforeCreate () {
-    document.title = this.$route.meta.title
   }
 }
 </script>

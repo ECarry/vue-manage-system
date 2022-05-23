@@ -53,10 +53,6 @@ export default {
           console.log(error)
         })
     }
-  },
-  beforeCreate () {
-    console.log(this.$route.meta.title)
-    document.title = this.$route.meta.title
   }
 }
 </script>

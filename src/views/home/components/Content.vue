@@ -18,7 +18,7 @@ export default {
   methods: {
     getPhotoData () {
       this.loading = true
-      this.$request.get('http://127.0.0.1:8000/api/photo/')
+      this.$request.get('/api/photo/')
         .then(
           res => {
             console.log('------------res-------------', res)
