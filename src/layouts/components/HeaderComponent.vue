@@ -16,7 +16,7 @@
         <el-avatar :src="Avator"></el-avatar>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>注销</el-dropdown-item>
+          <el-dropdown-item @click.native="logout">注销</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -40,6 +40,10 @@ export default {
   methods: {
     collapseMenu () {
       this.$store.commit('collapseMenu')
+    },
+    async logout () {
+      await localStorage.removeItem('token')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
 }

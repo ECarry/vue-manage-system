@@ -1,4 +1,4 @@
-import request from './utils/request'
+import request from '@/utils/request'
 
 export function login (data) {
   return request({
@@ -14,8 +14,4 @@ export function getUserInfo (id) {
     method: 'GET',
     params: { id }
   })
-}
-
-export function logout () {
-  return localStorage.removeItem('token')
 }

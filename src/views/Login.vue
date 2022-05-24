@@ -41,18 +41,13 @@ export default {
 
       const data = { ...this.form }
 
-      this.$request.post('/api/login/', data)
-        .then(res => {
-          console.log(res)
-          this.setUsername(res.username)
-          this.setToken(res.access)
-          this.setRefresh(res.refresh)
-          this.$router.push('/admin')
-        })
-        .then(error => {
-          console.log(error)
+      this.$store.dispatch('user/login', data)
+        .then(() => {
+          this.$router.push({ path: this.redirect || '/admin', query: this.otherQuery })
           this.isLoading = false
-          this.$message.error('用户名或密码错误!')
+        })
+        .catch(() => {
+          this.isLoading = false
         })
     }
   }

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/store'
 
 const instance = axios.create({
   baseURL: 'http://127.0.0.1:8000',
@@ -9,12 +10,9 @@ const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    // const token = localStorage.getItem('token')
-
-    // if (token) {
-    //   config.headers.Authorization = 'Bearer' + ' ' + token
-    //   return config
-    // } else return config
+    if (store.state.user.token) {
+      config.headers.Authorization = 'Bearer' + ' ' + store.state.user.token
+    }
     return config
   },
   error => {
@@ -34,7 +32,6 @@ instance.interceptors.response.use(
   error => {
   // 超出 2xx 范围的状态码都会触发该函数。
   // 对响应错误做点什么
-    console.log('-----------------erro--------------------')
     return Promise.reject(error)
   })
 
