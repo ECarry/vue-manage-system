@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  bashURL: 'http://127.0.0.1:8000',
+  baseURL: 'http://127.0.0.1:8000',
   timeout: 3000
 })
 
@@ -9,12 +9,13 @@ const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    const token = localStorage.getItem('token')
+    // const token = localStorage.getItem('token')
 
-    if (token) {
-      config.headers.Authorization = 'Bearer' + ' ' + token
-      return config
-    } else return config
+    // if (token) {
+    //   config.headers.Authorization = 'Bearer' + ' ' + token
+    //   return config
+    // } else return config
+    return config
   },
   error => {
   // 对请求错误做些什么

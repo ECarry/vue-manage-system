@@ -6,7 +6,6 @@ import '@/style/reset.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import request from './utils/request'
-import './mock'
 import 'remixicon/fonts/remixicon.css'
 
 Vue.config.productionTip = false
