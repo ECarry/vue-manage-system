@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '@/store'
 
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
+  baseURL: '',
   timeout: 3000
 })
 
@@ -10,7 +10,11 @@ const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    if (store.state.user.token) {
+
+    const token = store.state.user.token
+    console.log(token)
+    if (token) {
+      // 需要验证 token 是否过期
       config.headers.Authorization = 'Bearer' + ' ' + store.state.user.token
     }
     return config

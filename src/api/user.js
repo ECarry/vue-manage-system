@@ -15,3 +15,11 @@ export function getUserInfo (id) {
     params: { id }
   })
 }
+
+export function verifyToken (token) {
+  return request({
+    url: '/api/token/verify/',
+    method: 'POST',
+    token
+  })
+}

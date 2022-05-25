@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="list-card-items">
-      <el-skeleton :loading="loading" animated :count="1" style="display: grid; grid-template-columns: repeat(auto-fill, 250px);" >
+      <el-skeleton :loading="loading" animated :count="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));" >
         <template slot="template">
           <el-skeleton-item variant="image" style="width: 250px; height: 250px;" />
           <div>
